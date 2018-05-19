@@ -140,6 +140,7 @@ func main() {
 	http.HandleFunc("/addVoter", addVoter)
 	http.HandleFunc("/getResults", getResults)
 
+  dir = "/home/istvan/evoting/src/go"
 	u, err := url.Parse(dir)
 	u.Path = path.Join(u.Path, "/css")
 	//serve the css library
@@ -246,7 +247,7 @@ func indexFunc(w http.ResponseWriter, r *http.Request){
 	}
 
 
-
+  dir = "/home/istvan/evoting/src/go"
 	t, err := template.ParseFiles(dir+"/index.html") //parse the html file homepage.html
 
 	if err != nil { // if there is an error
@@ -290,6 +291,7 @@ func DisplayRadioButtons(w http.ResponseWriter, r *http.Request){
 	}
 	fmt.Println(dir)
 
+  dir = "/home/istvan/evoting/src/go"
 	t, err := template.ParseFiles(dir+"admin.html") //parse the html file homepage.html
 
 	if err != nil { // if there is an error
@@ -353,6 +355,8 @@ func voterSelected(w http.ResponseWriter, r *http.Request){
 
 	fmt.Println("kakkkkk"+dir)
 
+
+  dir = "/home/istvan/evoting/src/go"
 	t, err := template.ParseFiles(dir+"/voter.html") //parse the html file homepage.html
 	if err != nil { // if there is an error
 		log.Print("template parsing error: ", err) // log it
@@ -444,6 +448,7 @@ func adminSelected(w http.ResponseWriter, r *http.Request){
 	}
 	fmt.Println(dir)
 
+  dir = "/home/istvan/evoting/src/go"
 	t, err := template.ParseFiles(dir+"/admin.html") //parse the html file homepage.html
 	if err != nil { // if there is an error
 		log.Print("template parsing error: ", err) // log it
@@ -516,6 +521,7 @@ func voteSelected(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	dir = "/home/istvan/evoting/src/go"
 	// generate page by passing page variables into template
 	t, err := template.ParseFiles(dir+"/index.html") //parse the html file homepage.html
 	if err != nil { // if there is an error
@@ -572,6 +578,7 @@ func addVoter(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+  dir = "/home/istvan/evoting/src/go"
 	// generate page by passing page variables into template
 	t, err := template.ParseFiles(dir+"/index.html") //parse the html file homepage.html
 	if err != nil { // if there is an error
@@ -620,6 +627,7 @@ func getResults(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+  dir = "/home/istvan/evoting/src/go"
 	// generate page by passing page variables into template
 	t, err := template.ParseFiles(dir+"/index.html") //parse the html file homepage.html
 	if err != nil { // if there is an error
@@ -653,4 +661,3 @@ func getResults(w http.ResponseWriter, r *http.Request) {
 func getQuestion (base_url string) string{
 	return reqGet(base_url+"/question")
 }
-
