@@ -45,7 +45,7 @@ let App = {
         App.web3Provider = new App.web3ProviderClass(url, net);
         App.web3 = new Web3(App.web3Provider);
 
-        let electionContractJson = require("../build/contracts/ElectionECCwPrecompile.json");
+        let electionContractJson = require("../build/contracts/Election.json");
 
         App.ElectionABI =  electionContractJson.abi;
         App.ElectionBIN = electionContractJson.bytecode;
